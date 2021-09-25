@@ -129,7 +129,7 @@ const data = [
 export default function Exemple() {
   return (
     <SmartTable
-      title={"Emails"}
+      title="Emails"
       data={data}
       headCells={headCells}
       // url="/api/admin/emails"

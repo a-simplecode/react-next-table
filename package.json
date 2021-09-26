@@ -31,7 +31,6 @@
     "LICENSE"
   ],
   "dependencies": {
-    "react-scripts": "4.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

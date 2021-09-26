@@ -31,7 +31,7 @@ SmartTable.js is a complete open source solution for [React.js](https://reactjs.
 ```
 npm install --save react-next-table
 Or
-yarn add --save react-next-table
+yarn add react-next-table
 ```
 
 You also need to install Bootstrap package.
@@ -40,7 +40,7 @@ You also need to install Bootstrap package.
 ```
 npm install --save bootstrap
 Or
-yarn add --save bootstrap
+yarn add bootstrap
 ```
 
 This component will be upgraded and updated regularly for better use, in the smallest package with a simple smart set of codes.

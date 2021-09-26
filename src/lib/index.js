@@ -3,7 +3,7 @@ import SVGArrowDown from "./icons/SVGArrowDown";
 import SVGArrowUp from "./icons/SVGArrowUp";
 import SVGChevronLeft from "./icons/SVGChevronLeft";
 import SVGChevronRight from "./icons/SVGChevronRight";
-import styles from "./SmartTable.module.css";
+import "./SmartTable.css";
 
 function SmartTable(props) {
   const [loading, setLoading] = useState(false);
@@ -119,10 +119,10 @@ function SmartTable(props) {
 
   return (
     <div className="col-12 p-4">
-      <div className={styles.container + " row"}>
+      <div className="smartTable-container row">
         <div className="col-12">
           {loading && (
-            <div className={styles.loaderContainer + " text-primary"}>
+            <div className="smartTable-loaderContainer text-primary">
               <div className="spinner-border" role="status"></div>
             </div>
           )}
@@ -138,13 +138,13 @@ function SmartTable(props) {
             </div>
           </div>
           {data.length > 0 ? (
-            <div className={"row mt-3"}>
-              <div className={styles.tableContainer}>
+            <div className="row mt-3">
+              <div className="smartTable-tableContainer">
                 <table
-                  className={styles.table + " table table-striped border"}
+                  className={"smartTable-table table table-striped border"}
                   style={{ minWidth: tableWidth }}
                 >
-                  <thead className={styles.thead}>
+                  <thead className="smartTable-thead">
                     <tr>
                       {props.headCells.map((headCell) => {
                         return (
@@ -154,7 +154,7 @@ function SmartTable(props) {
                             scope="col"
                             style={{ width: headCell.width ?? "auto" }}
                             className={
-                              headCell.sortable !== false ? styles.pointer : ""
+                              headCell.sortable !== false ? "smartTable-pointer" : ""
                             }
                             onClick={() =>
                               headCell.sortable !== false
@@ -197,7 +197,7 @@ function SmartTable(props) {
             </div>
           ) : (
             <div className="row p-4">
-              <div className={styles.noDataFound + " col-12"}>
+              <div className="smartTable-noDataFound col-12">
                 <h4>NO DATA FOUND</h4>
               </div>
             </div>
@@ -238,7 +238,7 @@ function SmartTable(props) {
                   {(page - 1) * rowsPerPage + data.length} of {total}
                 </span>
                 <span
-                  className={page === 1 ? "ms-4" : styles.pointer + " ms-4"}
+                  className={page === 1 ? "ms-4" : "smartTable-pointer ms-4"}
                   onClick={(e) => {
                     e.preventDefault();
                     if (page === 1) return;
@@ -254,7 +254,7 @@ function SmartTable(props) {
                   className={
                     page * rowsPerPage >= total
                       ? "ms-4"
-                      : styles.pointer + " ms-4"
+                      : "smartTable-pointer ms-4"
                   }
                   onClick={(e) => {
                     e.preventDefault();

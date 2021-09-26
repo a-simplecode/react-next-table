@@ -1,4 +1,4 @@
-.container {
+.smartTable-container {
   border: 1px solid lightgray;
   padding-top: 10px;
   background-color: white;
@@ -7,43 +7,43 @@
   position: relative;
 }
 
-.tableContainer {
+.smartTable-tableContainer {
   max-height: 83vh !important;
   overflow: scroll;
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
 
-.tableContainer::-webkit-scrollbar {
+.smartTable-tableContainer::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
   height: 5px;
 }
 
-.tableContainer::-webkit-scrollbar-thumb {
+.smartTable-tableContainer::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgba(6, 66, 247, 0.5);
   box-shadow: 0 0 1px rgba(6, 66, 247, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(6, 66, 247, 0.5);
 }
 
-.table {
+.smartTable-table {
   border-collapse: separate;
   margin-bottom: 0 !important;
 }
 
-.thead {
+.smartTable-thead {
   position: sticky;
   top: 0;
   left: 0;
   background-color: white;
 }
 
-.pointer {
+.smartTable-pointer {
   cursor: pointer;
 }
 
-.loaderContainer {
+.smartTable-loaderContainer {
   position: absolute;
   left: 0;
   top: 0;
@@ -56,7 +56,7 @@
   align-items: center;
 }
 
-.noDataFound {
+.smartTable-noDataFound {
   text-align: center;
   padding: 30px;
   margin-top: 15px;

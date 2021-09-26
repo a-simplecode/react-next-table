@@ -23,7 +23,7 @@ var _SVGChevronLeft = _interopRequireDefault(require("./icons/SVGChevronLeft"));
 
 var _SVGChevronRight = _interopRequireDefault(require("./icons/SVGChevronRight"));
 
-var _SmartTableModule = _interopRequireDefault(require("./SmartTable.module.css"));
+require("./SmartTable.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -139,11 +139,11 @@ function SmartTable(props) {
   return /*#__PURE__*/React.createElement("div", {
     className: "col-12 p-4"
   }, /*#__PURE__*/React.createElement("div", {
-    className: _SmartTableModule.default.container + " row"
+    className: "smartTable-container row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-12"
   }, loading && /*#__PURE__*/React.createElement("div", {
-    className: _SmartTableModule.default.loaderContainer + " text-primary"
+    className: "smartTable-loaderContainer text-primary"
   }, /*#__PURE__*/React.createElement("div", {
     className: "spinner-border",
     role: "status"
@@ -161,14 +161,14 @@ function SmartTable(props) {
   }))), data.length > 0 ? /*#__PURE__*/React.createElement("div", {
     className: "row mt-3"
   }, /*#__PURE__*/React.createElement("div", {
-    className: _SmartTableModule.default.tableContainer
+    className: "smartTable-tableContainer"
   }, /*#__PURE__*/React.createElement("table", {
-    className: _SmartTableModule.default.table + " table table-striped border",
+    className: "smartTable-table table table-striped border",
     style: {
       minWidth: tableWidth
     }
   }, /*#__PURE__*/React.createElement("thead", {
-    className: _SmartTableModule.default.thead
+    className: "smartTable-thead"
   }, /*#__PURE__*/React.createElement("tr", null, props.headCells.map(headCell => {
     var _headCell$width;
 
@@ -179,7 +179,7 @@ function SmartTable(props) {
       style: {
         width: (_headCell$width = headCell.width) !== null && _headCell$width !== void 0 ? _headCell$width : "auto"
       },
-      className: headCell.sortable !== false ? _SmartTableModule.default.pointer : "",
+      className: headCell.sortable !== false ? "smartTable-pointer" : "",
       onClick: () => headCell.sortable !== false ? sortData(headCell.id) : {}
     }, headCell.label, sortDesc[headCell.id] ? /*#__PURE__*/React.createElement(_SVGArrowDown.default, null) : sortDesc[headCell.id] === undefined ? "" : /*#__PURE__*/React.createElement(_SVGArrowUp.default, null));
   }))), /*#__PURE__*/React.createElement("tbody", null, data.map((row, idx) => {
@@ -193,7 +193,7 @@ function SmartTable(props) {
   }))))) : /*#__PURE__*/React.createElement("div", {
     className: "row p-4"
   }, /*#__PURE__*/React.createElement("div", {
-    className: _SmartTableModule.default.noDataFound + " col-12"
+    className: "smartTable-noDataFound col-12"
   }, /*#__PURE__*/React.createElement("h4", null, "NO DATA FOUND"))), props.noPagination || data.length === 0 || !props.url || props.data ? /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
@@ -217,7 +217,7 @@ function SmartTable(props) {
   }))), /*#__PURE__*/React.createElement("span", {
     className: "ms-4"
   }, (page - 1) * rowsPerPage + 1, "-", (page - 1) * rowsPerPage + data.length, " of ", total), /*#__PURE__*/React.createElement("span", {
-    className: page === 1 ? "ms-4" : _SmartTableModule.default.pointer + " ms-4",
+    className: page === 1 ? "ms-4" : "smartTable-pointer ms-4",
     onClick: e => {
       e.preventDefault();
       if (page === 1) return;
@@ -227,7 +227,7 @@ function SmartTable(props) {
   }, /*#__PURE__*/React.createElement(_SVGChevronLeft.default, {
     color: page === 1 ? "lightgray" : undefined
   })), /*#__PURE__*/React.createElement("span", {
-    className: page * rowsPerPage >= total ? "ms-4" : _SmartTableModule.default.pointer + " ms-4",
+    className: page * rowsPerPage >= total ? "ms-4" : "smartTable-pointer ms-4",
     onClick: e => {
       e.preventDefault();
       if ((page - 1) * rowsPerPage > total) return;

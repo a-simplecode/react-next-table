@@ -1,6 +1,6 @@
 {
   "name": "react-next-table",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "The SmartTable is a react simple Component based on HTML, CSS, JavaScript, bootstrap. Used for fetching data from a defined api with an option of pagination and search. You can find also many useful options like sorting, selecting columns to show, custom render of cells, fully responsive on all devices, custom react title...",
   "author": "a-simplecode",
   "keywords": [
@@ -30,8 +30,7 @@
     "package.json",
     "LICENSE"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
@@ -64,10 +63,10 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^5.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1",
-    "bootstrap": "^5.1.1"
+    "web-vitals": "^1.0.1"
   }
 }

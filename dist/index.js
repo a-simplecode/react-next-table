@@ -23,8 +23,6 @@ var _SVGChevronLeft = _interopRequireDefault(require("./icons/SVGChevronLeft"));
 
 var _SVGChevronRight = _interopRequireDefault(require("./icons/SVGChevronRight"));
 
-require("./SmartTable.css");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function SmartTable(props) {

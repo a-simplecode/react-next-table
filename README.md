@@ -63,6 +63,7 @@ This component will be upgraded and updated regularly for better use, in the sma
 
 ```javascript
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-next-table/dist/SmartTable.css";
 ```
 
 ### Add React Component

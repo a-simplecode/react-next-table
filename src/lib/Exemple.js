@@ -1,4 +1,5 @@
 import SmartTable from "./index";
+import "./SmartTable.css";
 
 const headCells = [
   {

@@ -13,7 +13,7 @@ require("core-js/modules/es.string.includes.js");
 
 require("core-js/modules/es.array.sort.js");
 
-var _react = require("react");
+var _react = _interopRequireWildcard(require("react"));
 
 var _SVGArrowDown = _interopRequireDefault(require("./icons/SVGArrowDown"));
 
@@ -24,6 +24,10 @@ var _SVGChevronLeft = _interopRequireDefault(require("./icons/SVGChevronLeft"));
 var _SVGChevronRight = _interopRequireDefault(require("./icons/SVGChevronRight"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function SmartTable(props) {
   var _props$data,
@@ -134,43 +138,43 @@ function SmartTable(props) {
     setData(tempData);
   };
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12 p-4"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "smartTable-container row"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12"
-  }, loading && /*#__PURE__*/React.createElement("div", {
+  }, loading && /*#__PURE__*/_react.default.createElement("div", {
     className: "smartTable-loaderContainer text-primary"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "spinner-border",
     role: "status"
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-6 h3"
-  }, props.title), /*#__PURE__*/React.createElement("div", {
+  }, props.title), /*#__PURE__*/_react.default.createElement("div", {
     className: "col-6 text-end"
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     className: "form-control",
     placeholder: "Search...",
     onChange: handleSearch
-  }))), data.length > 0 ? /*#__PURE__*/React.createElement("div", {
+  }))), data.length > 0 ? /*#__PURE__*/_react.default.createElement("div", {
     className: "row mt-3"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "smartTable-tableContainer"
-  }, /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/_react.default.createElement("table", {
     className: "smartTable-table table table-striped border",
     style: {
       minWidth: tableWidth
     }
-  }, /*#__PURE__*/React.createElement("thead", {
+  }, /*#__PURE__*/_react.default.createElement("thead", {
     className: "smartTable-thead"
-  }, /*#__PURE__*/React.createElement("tr", null, props.headCells.map(headCell => {
+  }, /*#__PURE__*/_react.default.createElement("tr", null, props.headCells.map(headCell => {
     var _headCell$width;
 
-    return /*#__PURE__*/React.createElement("th", {
+    return /*#__PURE__*/_react.default.createElement("th", {
       id: headCell.id,
       key: headCell.id,
       scope: "col",
@@ -179,28 +183,28 @@ function SmartTable(props) {
       },
       className: headCell.sortable !== false ? "smartTable-pointer" : "",
       onClick: () => headCell.sortable !== false ? sortData(headCell.id) : {}
-    }, headCell.label, sortDesc[headCell.id] ? /*#__PURE__*/React.createElement(_SVGArrowDown.default, null) : sortDesc[headCell.id] === undefined ? "" : /*#__PURE__*/React.createElement(_SVGArrowUp.default, null));
-  }))), /*#__PURE__*/React.createElement("tbody", null, data.map((row, idx) => {
-    return /*#__PURE__*/React.createElement("tr", {
+    }, headCell.label, sortDesc[headCell.id] ? /*#__PURE__*/_react.default.createElement(_SVGArrowDown.default, null) : sortDesc[headCell.id] === undefined ? "" : /*#__PURE__*/_react.default.createElement(_SVGArrowUp.default, null));
+  }))), /*#__PURE__*/_react.default.createElement("tbody", null, data.map((row, idx) => {
+    return /*#__PURE__*/_react.default.createElement("tr", {
       key: "tr_" + idx
     }, props.headCells.map((headCell, idxx) => {
-      return /*#__PURE__*/React.createElement("td", {
+      return /*#__PURE__*/_react.default.createElement("td", {
         key: "td_" + idx + "_" + idxx
       }, headCell.render ? headCell.render(row) : row[headCell.id]);
     }));
-  }))))) : /*#__PURE__*/React.createElement("div", {
+  }))))) : /*#__PURE__*/_react.default.createElement("div", {
     className: "row p-4"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "smartTable-noDataFound col-12"
-  }, /*#__PURE__*/React.createElement("h4", null, "NO DATA FOUND"))), props.noPagination || data.length === 0 || !props.url || props.data ? /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h4", null, "NO DATA FOUND"))), props.noPagination || data.length === 0 || !props.url || props.data ? /*#__PURE__*/_react.default.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12 text-end p-3"
-  }, data.length > 0 ? data.length : 0, " Rows")) : /*#__PURE__*/React.createElement("div", {
+  }, data.length > 0 ? data.length : 0, " Rows")) : /*#__PURE__*/_react.default.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12 text-end p-3"
-  }, /*#__PURE__*/React.createElement("span", null, "Rows per page:", " ", /*#__PURE__*/React.createElement("select", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Rows per page:", " ", /*#__PURE__*/_react.default.createElement("select", {
     name: "rowsPerPage",
     value: rowsPerPage,
     onChange: e => {
@@ -208,13 +212,13 @@ function SmartTable(props) {
       fetchData(buildQueryString(search, page, e.target.value));
     }
   }, rowsPerPageOptions.map((nbr, idx) => {
-    return /*#__PURE__*/React.createElement("option", {
+    return /*#__PURE__*/_react.default.createElement("option", {
       key: "rowsPerPageOptions_" + idx,
       value: nbr
     }, nbr);
-  }))), /*#__PURE__*/React.createElement("span", {
+  }))), /*#__PURE__*/_react.default.createElement("span", {
     className: "ms-4"
-  }, (page - 1) * rowsPerPage + 1, "-", (page - 1) * rowsPerPage + data.length, " of ", total), /*#__PURE__*/React.createElement("span", {
+  }, (page - 1) * rowsPerPage + 1, "-", (page - 1) * rowsPerPage + data.length, " of ", total), /*#__PURE__*/_react.default.createElement("span", {
     className: page === 1 ? "ms-4" : "smartTable-pointer ms-4",
     onClick: e => {
       e.preventDefault();
@@ -222,9 +226,9 @@ function SmartTable(props) {
       setPage(page - 1);
       fetchData(buildQueryString(search, page - 1, rowsPerPage));
     }
-  }, /*#__PURE__*/React.createElement(_SVGChevronLeft.default, {
+  }, /*#__PURE__*/_react.default.createElement(_SVGChevronLeft.default, {
     color: page === 1 ? "lightgray" : undefined
-  })), /*#__PURE__*/React.createElement("span", {
+  })), /*#__PURE__*/_react.default.createElement("span", {
     className: page * rowsPerPage >= total ? "ms-4" : "smartTable-pointer ms-4",
     onClick: e => {
       e.preventDefault();
@@ -232,7 +236,7 @@ function SmartTable(props) {
       setPage(page + 1);
       fetchData(buildQueryString(search, page + 1, rowsPerPage));
     }
-  }, /*#__PURE__*/React.createElement(_SVGChevronRight.default, {
+  }, /*#__PURE__*/_react.default.createElement(_SVGChevronRight.default, {
     color: page * rowsPerPage >= total ? "lightgray" : undefined
   })))))));
 }

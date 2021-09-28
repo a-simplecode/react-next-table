@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SVGArrowDown from "./icons/SVGArrowDown";
 import SVGArrowUp from "./icons/SVGArrowUp";
 import SVGChevronLeft from "./icons/SVGChevronLeft";

@@ -7,6 +7,8 @@ exports.default = Exemple;
 
 var _index = _interopRequireDefault(require("./index"));
 
+require("./SmartTable.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const headCells = [{

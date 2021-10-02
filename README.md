@@ -6,7 +6,13 @@
    <p align="center">
    Open Source.
    </p>
-   <p align="center" style="align: center; margin-bottom: 100px;">
+   <p align="center">
+      <a href="https://packagequality.com/#?package=react-next-table">
+        <img src="https://packagequality.com/shield/react-next-table.svg" alt="Bundle Size"/>
+      </a>
+      <a href="https://bundlephobia.com/result?p=react-next-table">
+        <img src="https://img.shields.io/bundlephobia/minzip/react-next-table" alt="Bundle Size"/>
+      </a>
       <a href="https://www.npmtrends.com/react-next-table">
         <img src="https://img.shields.io/npm/dm/react-next-table" alt="Downloads" />
       </a>
@@ -18,15 +24,19 @@
       </a>
       <img src="https://img.shields.io/github/v/release/a-simplecode/react-next-table?include_prereleases&label=prerelease&sort=semver" alt="Github Prelease" />
    </p>
+   <h3 align="center">
+   Visit my<a href="https://www.simplecode.app">Website</a> for docs, guides, API and more!
+   </h3>
+   <br/><br/>
 </p>
 
-## Visit [simplecode.app](https://www.simplecode.app) for docs, guides, API and more!
-
-## Overview
+## Overview:
 
 SmartTable.js is a complete open source solution for [React.js](https://reactjs.org) applications.
 
-## Getting Started
+<br/>
+
+## Getting Started:
 
 ```javascript
 npm install --save react-next-table
@@ -36,15 +46,24 @@ yarn add react-next-table
 
 You also need to install Bootstrap package.
 
-
 ```javascript
 npm install --save bootstrap
 Or
 yarn add bootstrap
 ```
 
+Add the following imports to app.js
+
+```javascript
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-next-table/dist/SmartTable.css";
+```
+
 This component will be upgraded and updated regularly for better use, in the smallest package with a simple smart set of codes.
-## Features
+
+<br/>
+
+## Features:
 
 ### Flexible and easy to use
 
@@ -56,28 +75,25 @@ This component will be upgraded and updated regularly for better use, in the sma
 - Supports search.
 - Supports pagination if an api url added for better SEO and user experience.
 - Supports external data by props data and internal data by adding the api url.
-## Props
 
+<br/>
 
-| prop name | required | options | description |
-| --------- |:--------:| ------- | ----------- |
-| **headCells** | `true` | Array of object | The **headCells** props tell the component what columns do you want to show from the array and how you want to show it. There are some required object keys: `id`, `label`, `width` (as integer in px); and other options like: `sortable` (bool), `numeric` (bool !helps to sort as number!), `render` (a custom column, html, css, javascript, react !you can do all!)  |
-| **data** | `true` if `url` prop is not used | Array of object | Prerendered data useful if using [NextJs](http://nextjs.org) framework for server side rendering OR `url` prop can't be used in your case...|
-| **url** | `true` if `data` prop is not used | String | fetch data on the component mount if prop `data` doesn't exist. And on search adding a query param called `search`, on row number change adding a query param called `limit` and on page change adding a query param called `page`. The best news is that they also work as a combination on the this `url` prop that will work as `paginated api` |
-| **title** | `false` | String/React component | It's mainly to be a title or a button |
-| **searchDebounceTime** | `false` | Integer default is 800 in (ms) | configure the time you need the search api to start seaching after stop typing in the search box|
-| **noPagination** | `false` | Boolean | |
-| **rowsPerPage** | `false` | Integer default is 10 | |
-| **rowsPerPageOptions** | `false` | array default is [5, 10, 25, 50] | |
+## Props:
 
-## Example
+| prop name              |             required              | options                          | description                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | :-------------------------------: | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **headCells**          |              `true`               | Array of object                  | The **headCells** props tell the component what columns do you want to show from the array and how you want to show it. There are some required object keys: `id`, `label`, `width` (as integer in px); and other options like: `sortable` (bool), `numeric` (bool !helps to sort as number!), `render` (a custom column, html, css, javascript, react !you can do all!) |
+| **data**               | `true` if `url` prop is not used  | Array of object                  | Prerendered data useful if using [NextJs](http://nextjs.org) framework for server side rendering OR `url` prop can't be used in your case...                                                                                                                                                                                                                             |
+| **url**                | `true` if `data` prop is not used | String                           | fetch data on the component mount if prop `data` doesn't exist. And on search adding a query param called `search`, on row number change adding a query param called `limit` and on page change adding a query param called `page`. The best news is that they also work as a combination on the this `url` prop that will work as `paginated api`                       |
+| **title**              |              `false`              | String/React component           | It's mainly to be a title or a button                                                                                                                                                                                                                                                                                                                                    |
+| **searchDebounceTime** |              `false`              | Integer default is 800 in (ms)   | configure the time you need the search api to start seaching after stop typing in the search box                                                                                                                                                                                                                                                                         |
+| **noPagination**       |              `false`              | Boolean                          |                                                                                                                                                                                                                                                                                                                                                                          |
+| **rowsPerPage**        |              `false`              | Integer default is 10            |                                                                                                                                                                                                                                                                                                                                                                          |
+| **rowsPerPageOptions** |              `false`              | array default is [5, 10, 25, 50] |                                                                                                                                                                                                                                                                                                                                                                          |
 
-### Add the following imports to app.js
+<br/>
 
-```javascript
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-next-table/dist/SmartTable.css";
-```
+## Example:
 
 ### Add React Component
 
@@ -166,16 +182,12 @@ const data = [
 ];
 
 export default function Exemple() {
-  return (
-    <SmartTable
-      title="Emails"
-      data={data}
-      headCells={headCells}
-    />
-  );
+  return <SmartTable title="Emails" data={data} headCells={headCells} />;
 }
-
 ```
+
+<br/>
+
 ## License
 
 ISC

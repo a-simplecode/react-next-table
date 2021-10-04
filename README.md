@@ -1,6 +1,9 @@
 <p align="center">
    <br/>
-   <a href="https://wwww.simplecode.app" target="_blank"><h1 align="center">SimpleCode</h1></a>
+   <a href="https://wwww.simplecode.app" target="_blank">
+        <img src="https://i.ibb.co/MZBr6jt/simplecode.png" width="200" height="200" alt="Simple Code Logo"/>
+        <h1 align="center">SimpleCode</h1>
+        </a>
    <h3 align="center">SmartTable.js</h3>
    <p align="center">light weight bootstrap smart table</p>
    <p align="center">
@@ -25,7 +28,7 @@
       <img src="https://img.shields.io/github/v/release/a-simplecode/react-next-table?include_prereleases&label=prerelease&sort=semver" alt="Github Prelease" />
    </p>
    <h3 align="center">
-   Visit my<a href="https://www.simplecode.app">Website</a> for docs, guides, API and more!
+   Visit my <a href="https://www.simplecode.app">Website</a> for docs, guides, API and more!
    </h3>
    <br/><br/>
 </p>

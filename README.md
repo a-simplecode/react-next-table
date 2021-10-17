@@ -9,18 +9,18 @@
    <p align="center">
    Open Source.
    </p>
-   <p align="center">
-      <a href="https://packagequality.com/#?package=react-next-table">
-        <img src="https://packagequality.com/shield/react-next-table.svg" alt="Bundle Size"/>
-      </a>
-      <a href="https://bundlephobia.com/result?p=react-next-table">
-        <img src="https://img.shields.io/bundlephobia/minzip/react-next-table" alt="Bundle Size"/>
-      </a>
-      <a href="https://www.npmtrends.com/react-next-table">
+   <p align="center">      
+   <a href="https://www.npmtrends.com/react-next-table">
         <img src="https://img.shields.io/npm/dm/react-next-table" alt="Downloads" />
       </a>
       <a href="https://github.com/a-simplecode/react-next-table/stargazers">
         <img src="https://img.shields.io/github/stars/a-simplecode/react-next-table" alt="Github Stars" />
+      </a>
+      <a href="https://bundlephobia.com/result?p=react-next-table">
+        <img src="https://img.shields.io/bundlephobia/minzip/react-next-table" alt="Bundle Size"/>
+      </a>
+      <a href="https://packagequality.com/#?package=react-next-table">
+        <img src="https://packagequality.com/shield/react-next-table.svg" alt="Bundle Size"/>
       </a>
       <a href="https://www.npmjs.com/package/react-next-table">
         <img src="https://img.shields.io/github/v/release/a-simplecode/react-next-table?label=latest" alt="Github Stable Release" />
@@ -32,6 +32,12 @@
    </h3>
    <br/><br/>
 </p>
+
+## Demo:
+
+Check my website for a live paginated [Demo](https://www.simplecode.app/packages/react-next-table).
+
+<br/>
 
 ## Overview:
 

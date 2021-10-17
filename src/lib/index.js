@@ -67,7 +67,7 @@ function SmartTable(props) {
 
     if (page) queries.push(`page=${page}`);
     if (rowsPerPage) queries.push(`limit=${rowsPerPage}`);
-    if (search) queries.push(`search=${search.toLowerCase()}`);
+    if (search.trim()) queries.push(`search=${search.toLowerCase().trim()}`);
 
     const queryString = queries.join("&");
 
@@ -92,7 +92,7 @@ function SmartTable(props) {
       let tempData = props.data.filter((row) => {
         bool = false;
         Object.keys(row).forEach((key) => {
-          if (row[key].toLowerCase().includes(value.toLowerCase())) bool = true;
+          if (row[key].toLowerCase().includes(value.toLowerCase().trim())) bool = true;
         });
         return bool;
       });

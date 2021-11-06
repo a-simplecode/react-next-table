@@ -33,6 +33,7 @@ function SmartTable(props) {
   var _props$data,
       _props$rowsPerPage,
       _props$rowsPerPageOpt,
+      _props$total,
       _this = this,
       _props$searchDebounce;
 
@@ -44,7 +45,7 @@ function SmartTable(props) {
   const [rowsPerPage, setRowsPerPage] = (0, _react.useState)((_props$rowsPerPage = props.rowsPerPage) !== null && _props$rowsPerPage !== void 0 ? _props$rowsPerPage : 10);
   const [rowsPerPageOptions] = (0, _react.useState)((_props$rowsPerPageOpt = props.rowsPerPageOptions) !== null && _props$rowsPerPageOpt !== void 0 ? _props$rowsPerPageOpt : [5, 10, 25, 50]);
   const [page, setPage] = (0, _react.useState)(1);
-  const [total, setTotal] = (0, _react.useState)(0);
+  const [total, setTotal] = (0, _react.useState)((_props$total = props.total) !== null && _props$total !== void 0 ? _props$total : 0);
   const fetchData = (0, _react.useCallback)(async queryString => {
     setLoading(true);
 
@@ -108,7 +109,9 @@ function SmartTable(props) {
     } = event.target;
     setSearch(value);
 
-    if (props.data) {
+    if (props.url) {
+      fetchData(buildQueryString(value, page, rowsPerPage));
+    } else {
       let bool = false;
       let tempData = props.data.filter(row => {
         bool = false;
@@ -118,8 +121,6 @@ function SmartTable(props) {
         return bool;
       });
       setData(tempData);
-    } else if (props.url) {
-      fetchData(buildQueryString(value, page, rowsPerPage));
     }
   }, (_props$searchDebounce = props.searchDebounceTime) !== null && _props$searchDebounce !== void 0 ? _props$searchDebounce : 800);
 
@@ -196,7 +197,7 @@ function SmartTable(props) {
     className: "row p-4"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "smartTable-noDataFound col-12"
-  }, /*#__PURE__*/_react.default.createElement("h4", null, "NO DATA FOUND"))), props.noPagination || data.length === 0 || !props.url || props.data ? /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("h4", null, "NO DATA FOUND"))), props.noPagination || data.length === 0 || !props.url ? /*#__PURE__*/_react.default.createElement("div", {
     className: "row"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "col-12 text-end p-3"

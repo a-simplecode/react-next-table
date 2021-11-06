@@ -16,7 +16,7 @@ function SmartTable(props) {
     props.rowsPerPageOptions ?? [5, 10, 25, 50]
   );
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(props.total ?? 0);
 
   const fetchData = useCallback(
     async (queryString) => {
@@ -87,7 +87,9 @@ function SmartTable(props) {
   const handleSearch = debounce((event) => {
     const { value } = event.target;
     setSearch(value);
-    if (props.data) {
+    if (props.url) {
+      fetchData(buildQueryString(value, page, rowsPerPage));
+    }else {
       let bool = false;
       let tempData = props.data.filter((row) => {
         bool = false;
@@ -97,8 +99,6 @@ function SmartTable(props) {
         return bool;
       });
       setData(tempData);
-    } else if (props.url) {
-      fetchData(buildQueryString(value, page, rowsPerPage));
     }
   }, props.searchDebounceTime ?? 800);
 
@@ -203,8 +203,7 @@ function SmartTable(props) {
           )}
           {props.noPagination ||
           data.length === 0 ||
-          !props.url ||
-          props.data ? (
+          !props.url ? (
             <div className="row">
               <div className="col-12 text-end p-3">
                 {data.length > 0 ? data.length : 0} Rows

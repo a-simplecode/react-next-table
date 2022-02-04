@@ -1,16 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
-import SVGArrowDown from "./icons/SVGArrowDown";
-import SVGArrowUp from "./icons/SVGArrowUp";
-import SVGChevronLeft from "./icons/SVGChevronLeft";
-import SVGChevronRight from "./icons/SVGChevronRight";
+import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import SVGArrowDown from './icons/SVGArrowDown';
+import SVGArrowUp from './icons/SVGArrowUp';
+import SVGChevronLeft from './icons/SVGChevronLeft';
+import SVGChevronRight from './icons/SVGChevronRight';
 
 function SmartTable(props) {
   const [loading, setLoading] = useState(false);
   const [sortDesc, setSortDesc] = useState({});
   const [tableWidth, setTableWidth] = useState(1000);
-  const [data, setData] = useState(props.data ?? []);
+  const [data, setData] = useState(props.data);
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(props.rowsPerPage ?? 10);
   const [rowsPerPageOptions] = useState(
     props.rowsPerPageOptions ?? [5, 10, 25, 50]
@@ -24,9 +25,9 @@ function SmartTable(props) {
 
       try {
         const response = await fetch(
-          props.url + (queryString ? queryString : ""),
+          props.url + (queryString ? queryString : ''),
           {
-            method: "get",
+            method: 'get',
           }
         );
         const data = await response.json();
@@ -35,7 +36,7 @@ function SmartTable(props) {
           setTotal(data.data.total, 0);
         }
       } catch (e) {
-        console.log("Fetch error", e.message);
+        console.log('Fetch error', e.message);
       }
       setLoading(false);
     },
@@ -44,7 +45,7 @@ function SmartTable(props) {
 
   const tableWidthFunc = useCallback(() => {
     let tempTableWidth = 0;
-    props.headCells.map((cell) => tempTableWidth += cell.width);
+    props.headCells.map((cell) => (tempTableWidth += cell.width));
 
     if (tempTableWidth) setTableWidth(tempTableWidth);
   }, [props.headCells]);
@@ -69,9 +70,9 @@ function SmartTable(props) {
     if (rowsPerPage) queries.push(`limit=${rowsPerPage}`);
     if (search) queries.push(`search=${search.toLowerCase()}`);
 
-    const queryString = queries.join("&");
+    const queryString = queries.join('&');
 
-    return queryString ? `?${queryString}` : "";
+    return queryString ? `?${queryString}` : '';
   };
 
   const debounce = (func, timeout = 300) => {
@@ -89,7 +90,7 @@ function SmartTable(props) {
     setSearch(value);
     if (props.url) {
       fetchData(buildQueryString(value, page, rowsPerPage));
-    }else {
+    } else {
       let bool = false;
       let tempData = props.data.filter((row) => {
         bool = false;
@@ -140,7 +141,7 @@ function SmartTable(props) {
             <div className="row mt-3">
               <div className="smartTable-tableContainer">
                 <table
-                  className={"smartTable-table table table-striped border"}
+                  className={'smartTable-table table table-striped border'}
                   style={{ minWidth: tableWidth }}
                 >
                   <thead className="smartTable-thead">
@@ -151,9 +152,11 @@ function SmartTable(props) {
                             id={headCell.id}
                             key={headCell.id}
                             scope="col"
-                            style={{ width: headCell.width ?? "auto" }}
+                            style={{ width: headCell.width ?? 'auto' }}
                             className={
-                              headCell.sortable !== false ? "smartTable-pointer" : ""
+                              headCell.sortable !== false
+                                ? 'smartTable-pointer'
+                                : ''
                             }
                             onClick={() =>
                               headCell.sortable !== false
@@ -165,7 +168,7 @@ function SmartTable(props) {
                             {sortDesc[headCell.id] ? (
                               <SVGArrowDown />
                             ) : sortDesc[headCell.id] === undefined ? (
-                              ""
+                              ''
                             ) : (
                               <SVGArrowUp />
                             )}
@@ -177,10 +180,10 @@ function SmartTable(props) {
                   <tbody>
                     {data.map((row, idx) => {
                       return (
-                        <tr key={"tr_" + idx}>
+                        <tr key={'tr_' + idx}>
                           {props.headCells.map((headCell, idxx) => {
                             return (
-                              <td key={"td_" + idx + "_" + idxx}>
+                              <td key={'td_' + idx + '_' + idxx}>
                                 {headCell.render
                                   ? headCell.render(row)
                                   : row[headCell.id]}
@@ -201,9 +204,7 @@ function SmartTable(props) {
               </div>
             </div>
           )}
-          {props.noPagination ||
-          data.length === 0 ||
-          !props.url ? (
+          {props.noPagination || data.length === 0 || !props.url ? (
             <div className="row">
               <div className="col-12 text-end p-3">
                 {data.length > 0 ? data.length : 0} Rows
@@ -213,7 +214,7 @@ function SmartTable(props) {
             <div className="row">
               <div className="col-12 text-end p-3">
                 <span>
-                  Rows per page:{" "}
+                  Rows per page:{' '}
                   <select
                     name="rowsPerPage"
                     value={rowsPerPage}
@@ -224,7 +225,7 @@ function SmartTable(props) {
                   >
                     {rowsPerPageOptions.map((nbr, idx) => {
                       return (
-                        <option key={"rowsPerPageOptions_" + idx} value={nbr}>
+                        <option key={'rowsPerPageOptions_' + idx} value={nbr}>
                           {nbr}
                         </option>
                       );
@@ -236,7 +237,7 @@ function SmartTable(props) {
                   {(page - 1) * rowsPerPage + data.length} of {total}
                 </span>
                 <span
-                  className={page === 1 ? "ms-4" : "smartTable-pointer ms-4"}
+                  className={page === 1 ? 'ms-4' : 'smartTable-pointer ms-4'}
                   onClick={(e) => {
                     e.preventDefault();
                     if (page === 1) return;
@@ -245,14 +246,14 @@ function SmartTable(props) {
                   }}
                 >
                   <SVGChevronLeft
-                    color={page === 1 ? "lightgray" : undefined}
+                    color={page === 1 ? 'lightgray' : undefined}
                   />
                 </span>
                 <span
                   className={
                     page * rowsPerPage >= total
-                      ? "ms-4"
-                      : "smartTable-pointer ms-4"
+                      ? 'ms-4'
+                      : 'smartTable-pointer ms-4'
                   }
                   onClick={(e) => {
                     e.preventDefault();
@@ -263,7 +264,7 @@ function SmartTable(props) {
                 >
                   <SVGChevronRight
                     color={
-                      page * rowsPerPage >= total ? "lightgray" : undefined
+                      page * rowsPerPage >= total ? 'lightgray' : undefined
                     }
                   />
                 </span>
@@ -275,5 +276,24 @@ function SmartTable(props) {
     </div>
   );
 }
+
+SmartTable.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.Object),
+  rowsPerPage: PropTypes.number,
+  rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+  total: PropTypes.number,
+  url: PropTypes.string,
+  headCells: PropTypes.arrayOf(
+    //means Object
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      numeric: PropTypes.bool,
+      width: PropTypes.number, //px
+      sortable: PropTypes.bool,
+      render: PropTypes.func,
+    })
+  ),
+};
 
 export default SmartTable;

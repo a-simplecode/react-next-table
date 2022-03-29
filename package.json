@@ -19,7 +19,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/a-simplecode/react-next-table/issues"
   },
